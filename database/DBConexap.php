@@ -3,11 +3,11 @@
 class DBConexao{
     //configuraçao do banco de Dados 
     private $host = "localhost";
-    private $dbname = "boblioteca";
+    private $dbname = "biblioteca";
     private $username = "root";
     private $password = "senac2023";
 
-    private $conx;
+    protected $conx;
     private static $instance = null;
 
     public function __construct()
