@@ -15,7 +15,7 @@ class DBConexao{
         try{
             //inicializar a conexao
             $this -> conx = new PDO("mysql:host=$this->host;
-            dbname=$this ->dbname;charset=utf8",$this->username,$this->password);
+            dbname=$this->dbname;charset=utf8",$this->username,$this->password);
             $this->conx->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         }catch(PDOException $e){

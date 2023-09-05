@@ -1,4 +1,6 @@
 <?php
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
+
 
 class Usuario{
 
@@ -9,30 +11,25 @@ class Usuario{
     {
         $this->db = DBConexao::getConexao();
     }
-
-    /**
-     * busca registro unico
+  /**
+     * buscar registro unico
      * @param int $id
-     * @return Usuario
+     * @return Usuario|null 
      */
-    public function buscar($id){
-        try{
-            $query = ("SELECT * FROM {$this->table} WHERE id_usuario = :id");
-            $stmt = $this->db->prepare($query);  
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-            if($usuario){
-                echo "ID: " .$usuario['id_usuario'] . "<br>";
-                echo "Nome: " .$usuario['nome'] . "<br>";
-                echo "E-mail: " .$usuario['email'] . "<br>";
-                echo "Perfil: " .$usuario['perfil'] . "<br>";
-            } //isso tudo aqui é temporário
-        }catch(PDOException $e ){
-            echo 'Erro na inserção: ' . $e->getMessage();
-        }
+    public function buscar($id)
 
-      
+    {
+
+        try {
+            $sql = ("SELECT * FROM {$this->table} WHERE id_usuario = :id");
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt ->fetch(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo "Erro na inserção!" . $e->getMessage();
+            return null;
+        }
     }
 
     /**
@@ -41,11 +38,12 @@ class Usuario{
     public function listar(){
 
         try{
-            $sql = "SELECT FROM {$this -> table} Where id_usuario=:id";
-            $stmt= $this ->db->prepare($sql);
-            $stmt->execute();  
+            $sql = "SELECT * FROM {$this->table}";
+            $stmt= $this ->db->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
         }catch(PDOException $e){
-            echo "erro na busca por usuario: " .$e -> getMessage();
+            echo 'Erro ao Listar: ' . $e->getMessage();
+            return  null;
         }
     }
     /**
@@ -55,22 +53,19 @@ class Usuario{
      */
     public function cadastrar($dados){
         try{
-            $sql= "INSERT INTO {$this-> table} (nome,email, senha, perfil,)
+            $query= "INSERT INTO {$this->table} (nome,email, senha, perfil,)
             VALUES(:nome,:email,:senha,:perfil)";
-            $stmt = $this->db-> prepare($sql);
+            $stmt = $this->db-> prepare($query);
+            $stmt->bindParam(':name',$dados['nome']);
+            $stmt->bindParam(':email',$dados['email']);
+            $stmt->bindParam(':senha',$dados['senha']);
+            $stmt->bindParam(':perfil',$dados['perfil']);
+            $stmt->execute();
+            return true;
         }catch(PDOException $e){
             echo "erro na preparação da consulta:" .$e -> getMessage();
-        }
-        $stmt->bindParam(':name',$dados['nome']);
-        $stmt->bindParam(':email',$dados['email']);
-        $stmt->bindParam(':senha',$dados['senha']);
-        $stmt->bindParam(':perfil',$dados['perfil']);
-
-        try{
-            $stmt->execute();
-            echo "Inserção bem-sucedida!";
-        }catch(PDOException $e){
-            echo "Erro na inserção: " .$e->getMessage();
+            return false;
+            
         }
     }
     /**
@@ -83,31 +78,25 @@ class Usuario{
     public function editar($id,$dados){
 
         try{
-            $sql = "UPDATE {$this -> table} SET nome=:nome email = :email ,senha =:senha , perfil = :perfil WHERE id = :id";
+            $sql = "UPDATE {$this->table} SET nome=:nome email = :email ,senha =:senha , perfil = :perfil WHERE id_usuario = :id";
             $stmt =$this-> db->prepare($sql);
+            $stmt->bindParam(':name',$dados['nome']);
+            $stmt->bindParam(':email',$dados['email']);
+            $stmt->bindParam(':senha',$dados['senha']);
+            $stmt->bindParam(':perfil',$dados['perfil']);
+            $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
         }catch(PDOException $e){
             echo"Erro na preparacao da consulta: ".$e-> getMessage();
+            return false;
         }
-        $stmt->bindParam(':name',$dados['nome']);
-        $stmt->bindParam(':email',$dados['email']);
-        $stmt->bindParam(':senha',$dados['senha']);
-        $stmt->bindParam(':perfil',$dados['perfil']);
-
-        try{
-            $stmt->execuete();
-            echo"Seus dados foram atualizados com Sucesso !";
-        }catch(PDOException $e){
-            echo "Erro na inserção: ".$e ->getMessage();
-        }
-
-        
-
     }
     //excluir usuario
     public function excluir($id){
 
         try{
-            $sql = "DELETE FROM {$this->table} where id=:id";
+            $sql = "DELETE FROM {$this->table} where id_usuario=:id";
             $stmt = $this -> db-> prepare($sql);
             //passagem de parametros e execução do sql
             $stmt->bindParam(':id',$id, PDO::PARAM_INT);

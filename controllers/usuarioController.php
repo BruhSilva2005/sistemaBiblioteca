@@ -1,6 +1,9 @@
 <?php
 
-class usuarioController{
+require_once $_SERVER['DOCUMENT_ROOT'] . "/models/usuario.php";
+
+
+class  UsuarioController {
 
     private $usuarioModel;
 
@@ -8,5 +11,10 @@ class usuarioController{
     {
         $this -> usuarioModel= new Usuario();
     }
+
+    public function listarUsuarios(){
+        return $this ->usuarioModel->listar();
+    }
+
 
 }
