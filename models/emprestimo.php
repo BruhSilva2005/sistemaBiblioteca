@@ -1,9 +1,9 @@
 <?php  
         require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
 
-class Aluno{
+class emprestimo{
     protected $db;
-    protected $table = "alunos";
+    protected $table = "emprestimo";
 
     public function __construct()
     {
@@ -13,7 +13,7 @@ class Aluno{
 
     public function buscar($id){
         try {
-            $sql = ("SELECT * FROM {$this->table} WHERE id_aluno = :id");
+            $sql = ("SELECT * FROM {$this->table} WHERE id_emprestimo = :id");
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id',$id,PDO::PARAM_INT);
             $stmt->execute();
@@ -24,28 +24,25 @@ class Aluno{
         }
     }
 
-public function listarAlunos(){
+public function listar(){
     try{
-        $sql = "SELECT * FROM {$this -> table} Where id_aluno=:id";
+        $sql = "SELECT FROM {$this -> table} Where id_emprestimo=:id";
         $stmt= $this ->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_OBJ);
-        }
-    catch(PDOException $e){
+        }catch(PDOException $e){
         echo "Erro ao listar: " .$e -> getMessage();
         return null;
     }
 }       
         public function cadastrar($dados){
             try{
-                $query= "INSERT INTO {$this->table} (nome,cpf, email, telefone,celular,data_nascimento)
-                VALUES(:nome,:cpf,:email,:telefone,:celular,:data_nascimento)";
+                $query= "INSERT INTO {$this->table} (id_livro,id_aluno, data_emprestimo, data_devolucao)
+                VALUES(:id_livro,:id_aluno,:data_emprestimo,:data_devolucao,)";
                 $stmt = $this->db-> prepare($query);
-                 $stmt->bindParam(':nome',$dados['nome']);
-                 $stmt->bindParam(':cpf',$dados['cpf']);
-                 $stmt->bindParam(':email',$dados['email']);
-                 $stmt->bindParam(':telefone',$dados['telefone']);
-                 $stmt->bindParam(':celular',$dados['celular']);
-                 $stmt->bindParam(':data_nascimento',$dados['data_nascimento']);
+                 $stmt->bindParam(':id_livro',$dados['id_livro']);
+                 $stmt->bindParam(':id_aluno',$dados['id_aluno']);
+                 $stmt->bindParam(':data_emprestimo',$dados['data_emprestimo']);
+                 $stmt->bindParam(':data_devolucao',$dados['data_devolucao']);
                  $stmt->execute();
                  return true;
             }catch(PDOException $e){
@@ -57,14 +54,12 @@ public function listarAlunos(){
 public function editar($id,$dados){
     
     try{
-        $sql = "UPDATE {$this -> table} SET nome=:nome cpf = :cpf ,email =:email , telefone = :telefone ,celular= :celular ,data_nascimento = :data_nascimento WHERE id_aluno = :id";
+        $sql = "UPDATE {$this -> table} SET id_livro=:id_livro id_aluno = :id_aluno ,data_emprestimo =:data_emprestimo , data_devolucao = :data_devolucao WHERE id_emprestimo = :id";
         $stmt =$this-> db->prepare($sql);
-        $stmt->bindParam(':name',$dados['nome']);
-        $stmt->bindParam(':cpf',$dados['cpf']);
-        $stmt->bindParam(':email',$dados['email']);
-        $stmt->bindParam(':telefone',$dados['telefone']);
-        $stmt->bindParam(':celular',$dados['celular']);
-        $stmt->bindParam(':data_nascimento',$dados['data_nascimento']);
+        $stmt->bindParam(':id_livro',$dados['id_livro']);
+        $stmt->bindParam(':id_aluno',$dados['id_aluno']);
+        $stmt->bindParam(':data_emprestimo',$dados['data_emprestimo']);
+        $stmt->bindParam(':data_devolucao',$dados['data_devolucao']);
         $stmt->execute();
         return true;
     }catch(PDOException $e){
@@ -75,7 +70,7 @@ public function editar($id,$dados){
 public function excluir($id){
 
     try{
-        $sql = "DELETE FROM {$this->table} where id_alunos=:id";
+        $sql = "DELETE FROM {$this->table} where id_emprestimo=:id";
         $stmt = $this -> db-> prepare($sql);
         //passagem de parametros e execução do sql
         $stmt->bindParam(':id',$id, PDO::PARAM_INT);

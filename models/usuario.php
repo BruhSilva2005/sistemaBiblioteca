@@ -16,10 +16,7 @@ class Usuario{
      * @param int $id
      * @return Usuario|null 
      */
-    public function buscar($id)
-
-    {
-
+    public function buscar($id){
         try {
             $sql = ("SELECT * FROM {$this->table} WHERE id_usuario = :id");
             $stmt = $this->db->prepare($sql);

@@ -9,7 +9,7 @@ class  UsuarioController {
 
     public function __construct()
     {
-        $this -> usuarioModel= new Usuario();
+        $this->usuarioModel= new Usuario();
     }
 
     public function listarUsuarios(){
