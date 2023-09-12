@@ -1,5 +1,7 @@
 <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
+        
+        session_start();
 
 
 class Usuario{
@@ -39,7 +41,7 @@ class Usuario{
             $stmt= $this ->db->query($sql);
             return $stmt->fetchAll(PDO::FETCH_OBJ);
         }catch(PDOException $e){
-            echo 'Erro ao Listar: ' . $e->getMessage();
+            echo 'Erro ao Listar: '.$e->getMessage();
             return  null;
         }
     }
@@ -50,17 +52,18 @@ class Usuario{
      */
     public function cadastrar($dados){
         try{
-            $query= "INSERT INTO {$this->table} (nome,email, senha, perfil,)
-            VALUES(:nome,:email,:senha,:perfil)";
-            $stmt = $this->db-> prepare($query);
-            $stmt->bindParam(':name',$dados['nome']);
+            $query= "INSERT INTO {$this->table} (nome,email, senha, perfil)
+            VALUES (:nome,:email,:senha,:perfil)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':nome',$dados['nome']);
             $stmt->bindParam(':email',$dados['email']);
             $stmt->bindParam(':senha',$dados['senha']);
             $stmt->bindParam(':perfil',$dados['perfil']);
             $stmt->execute();
-            return true;
+            $_SESSION['sucesso'] ="Cadastro realizado com sucesso!";
         }catch(PDOException $e){
             echo "erro na preparação da consulta:" .$e -> getMessage();
+            $_SESSION['erro'] ="Erro ao cadastrar usuario!";
             return false;
             
         }
