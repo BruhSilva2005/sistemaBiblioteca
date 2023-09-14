@@ -26,7 +26,7 @@ class Aluno{
 
 public function listarAlunos(){
     try{
-        $sql = "SELECT * FROM {$this -> table} Where id_aluno=:id";
+        $sql = "SELECT * FROM {$this->table}";
         $stmt= $this ->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_OBJ);
         }

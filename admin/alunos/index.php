@@ -4,6 +4,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
 require_once $_SERVER ['DOCUMENT_ROOT'] . "/controllers/alunoController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/models/aluno.php";
 
+if(isset($_GET["del"])&& !empty($_get['id_aluno'])){
+
+    $alunoController = new alunoController();
+    $usuarioController->excluirAluno();
+}
+
 ?>
 
     <main class=" container mt-3 mb-3">
@@ -27,9 +33,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/models/aluno.php";
 
                     $alunoController = new AlunoController();
 
-                    $alunos = $alunoController->listarAlunos();
+                    $aluno = $alunoController->listarAlunos();
 
-                    var_dump($alunos);
+                    //var_dump($alunos);
 
                     foreach($alunos as $students):
                 ?>
@@ -44,8 +50,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/models/aluno.php";
                 <td><?=$students->celular?></td>
                 <td><?=$students->data_nascimento?></td>
                 <td>
-                    <A href="#" class="btn btn-primary">Editar</A>
-                    <a href = "#" class="btn btn-primary">Excluir</a>
+                    <a href="editar.php?id_usuario=<?=$students->id_aluno?>" class="btn btn-primary">Editar</A>
+                    <a href = "index.php?id_usuario=<?=$students->id_aluno?>" class="btn btn-primary">Excluir</a>
                 </td>       
             </tr>
             <?php

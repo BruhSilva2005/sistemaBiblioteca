@@ -3,6 +3,12 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
+
+    if(isset($_GET["del"])&& !empty($_GET['id_usuario'])){
+
+        $usuarioController = new usuarioController();
+        $usuarioController->excluirUsuario();
+    }
     
 
 ?>
@@ -43,8 +49,8 @@
                     <td><?=$user->perfil?></td>
                     <td>
 
-                    <a href="editar.php?id=<?=$user->id_usuario?>" class="btn btn-primary">Editar</a>
-                    <a href="#" class="btn btn-danger">Excluir</a>
+                    <a href="editar.php?id_usuario=<?=$user->id_usuario?>" class="btn btn-primary">Editar</a>
+                    <a href="index.php?id_usuario=<?=$user->id_usuario?>&del"class="btn btn-danger">Excluir</a>
                     </td>
             </tr>
             <?php

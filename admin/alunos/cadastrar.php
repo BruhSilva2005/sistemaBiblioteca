@@ -5,15 +5,15 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
 
 
-    $UsuarioController = new UsuarioController();
+    $AlunoController = new AlunoController();
 
-    $UsuarioController ->cadastrarUsuarios();
+    $AlunoController ->cadastrarAlunoS();
     
 
 ?>
 
 <main class="container mt-3 mb-3">
-    <h1>Cadastrar Usuario</h1>
+    <h1>Cadastrar  Alunos</h1>
 
     <form action="cadastrar.php" method="post" class="row g-3">
         <div class="col-md-12">
@@ -21,19 +21,20 @@
             <input type="text" name="nome" id="nome" class="form-control" required>
         </div>
         <div class="col-md-6">
+            <label for="cpf" class="form=label">cpf</label>
+            <input type="number" name="cpf" id="cpf" class="form-control"required>
+        </div>
+        <div class="col-md-6">
             <label for="email" class="form=label">E-mail</label>
             <input type="email" name="email" id="email" class="form-control" required>
         </div>
         <div class="col-md-6">
-            <label for="senha" class="form=label">Senha</label>
-            <input type="password" name="senha" id="senha" class="form-control"required>
+            <label for="phone" class="form=label">telefone</label>
+            <input type="number" name="telefone" id="telefone " class="form-control"required>
         </div>
         <div class=col-md-6>
-            <label for="perfil" class="form-label">Perfil</label>
-            <select name="perfil" class="form-select" id="perfil"required>
-                <option>Selecione o Perfil</option>
-                <option value="usuario">Usuario</option>
-                <option value="administrador">administrador</option>
+            <label for="celular" class="form-label">Celular</label>
+            <select name="celular" class="form-select" id="celular"required>
             </select>
         </div>
         <div class="col-12">
@@ -42,7 +43,7 @@
         </div>
     </form>
 </main>
-
 <?php
+
     require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
 ?>
