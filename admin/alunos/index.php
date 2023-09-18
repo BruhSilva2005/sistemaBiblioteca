@@ -37,21 +37,21 @@ if(isset($_GET["del"])&& !empty($_get['id_aluno'])){
 
                     //var_dump($alunos);
 
-                    foreach($alunos as $students):
+                    foreach($aluno as $alunos):
                 ?>
 
                 <tr>
 
-                <td><?=$students->id_aluno?></td>
-                <td><?=$students->nome?></td>
-                <td><?=$students->cpf?></td>
-                <td><?=$students->email?></td>
-                <td><?=$students->telefone?></td>
-                <td><?=$students->celular?></td>
-                <td><?=$students->data_nascimento?></td>
+                <td><?=$alunos->id_aluno?></td>
+                <td><?=$alunos->nome?></td>
+                <td><?=$alunos->cpf?></td>
+                <td><?=$alunos->email?></td>
+                <td><?=$alunos->telefone?></td>
+                <td><?=$alunos->celular?></td>
+                <td><?=$alunos->data_nascimento?></td>
                 <td>
-                    <a href="editar.php?id_usuario=<?=$students->id_aluno?>" class="btn btn-primary">Editar</A>
-                    <a href = "index.php?id_usuario=<?=$students->id_aluno?>" class="btn btn-primary">Excluir</a>
+                    <a href="editar.php?id_aluno=<?=$alunos->id_aluno?>" class="btn btn-primary">Editar</A>
+                    <a href = "index.php?id_aluno=<?=$alunos->id_aluno?>" class="btn btn-primary">Excluir</a>
                 </td>       
             </tr>
             <?php

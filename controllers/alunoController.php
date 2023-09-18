@@ -22,6 +22,8 @@ class alunoController{
                 'cpf'=>$_POST['cpf'],
                 'email'=>password_hash ($_POST['email'],PASSWORD_DEFAULT),
                 'telefone'=>$_POST['telefone'],
+                'celular'=>$_POST['celular'],
+                'data_nascimento'=>$_POST['data_nascimento']
                ];
     
                $this->alunoModel->cadastrar($dados);
@@ -31,6 +33,36 @@ class alunoController{
     
     
             }
+    }
+
+    public function EditarAluno(){{
+        $id_aluno = $_GET['id_aluno'];
+        if($_SERVER['REQUEST_METHOD'] ==='POST'){
+
+            $dados =[
+                'nome'=>$_POST['nome'],
+                'cpf'=>$_POST['cpf'],
+                'email'=>password_hash ($_POST['email'],PASSWORD_DEFAULT),
+                'telefone'=>$_POST['telefone'],
+                'celular'=>$_POST['celular'],
+                'data_nascimento'=>$_POST['data_nascimento']
+               ];
+
+           $this->alunoModel->editar($id_aluno,$dados);
+
+          header('Location: index.php');   
+           exit;
+        }
+        return $this->alunoModel->buscar($id_aluno);
+    }
+    }
+    public function excluirAluno(){
+
+        $this->alunoModel->excluir($_GET['id_aluno']);
+
+        header('location: index.php');
+        exit;
+
     }
 
 

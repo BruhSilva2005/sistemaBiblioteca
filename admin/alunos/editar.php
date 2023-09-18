@@ -18,24 +18,21 @@
             <label for="nome" class="form-label">Nome</label>
             <input type="text" name="nome" id="nome" class="form-control" required value="<?=$aluno->nome?>">
         </div>
+        <div class="col-md-12">
+            <label for="number" class="form-label">CPF</label>
+            <input type="number" name="cpf" id="cpf" class="form-control" required value="<?=$aluno->nome?>">
+        </div>
         <div class="col-md-6">
             <label for="email" class="form=label">E-mail</label>
             <input type="email" name="email" id="email" class="form-control" required value="<?=$aluno->email ?>">
         </div>
         <div class="col-md-6">
-            <label for="senha" class="form=label">Senha</label>
-            <input type="password" name="senha" id="senha" class="form-control">
-            <p class="text-secondary">Caso queira manter a senha,deixe o campo em branco</p>
+            <label for="phone" class="form=label">Telefone</label>
+            <input type="phone" name="telefone" id="telefone" class="form-control" required value="<?=$aluno->telefone ?>">
         </div>
-        <div class=col-md-6>
-            <label for="perfil" class="form-label">Perfil</label>
-            <select name="perfil" class="form-select" id="perfil">
-                <option>Selecione o Perfil</option>
-                <option value="usuario"
-                <?=($aluno->perfil =="aluno")?"selected":"";?> >Aluno</option>
-                <option value="administrador"
-                <?=($aluno->perfil == "admnistrador")? "selected":"";?>>administrador</option>
-            </select>
+        <div class="col-md-6">
+            <label for="phone" class="form=label">Celular</label>
+            <input type="phone" name="celular" id="celulat" class="form-control" required value="<?=$aluno->celular ?>">
         </div>
         <div class="col-md-6">
             <label for="data_nascimento" class="form=label">Data de Nascimento
