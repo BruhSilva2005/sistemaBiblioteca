@@ -2,7 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/models/aluno.php";
 
-class alunoController{
+class AlunoController{
 
     private $alunoModel;
 
@@ -42,7 +42,7 @@ class alunoController{
             $dados =[
                 'nome'=>$_POST['nome'],
                 'cpf'=>$_POST['cpf'],
-                'email'=>password_hash ($_POST['email'],PASSWORD_DEFAULT),
+                'email'=>($_POST['email']),
                 'telefone'=>$_POST['telefone'],
                 'celular'=>$_POST['celular'],
                 'data_nascimento'=>$_POST['data_nascimento']

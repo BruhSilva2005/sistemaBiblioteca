@@ -2,10 +2,9 @@
 
     require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
 
-    $alunoController = new alunoController();
-    $aluno = $alunoController ->EditarAluno();
+    $AlunoController=new alunoController();
+    $AlunoController->EditarAluno();
 
      // var_dump($aluno);
 ?>
