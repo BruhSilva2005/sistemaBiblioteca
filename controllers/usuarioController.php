@@ -9,11 +9,11 @@ class  UsuarioController {
 
     public function __construct()
     {
-        $this->usuarioModel= new Usuario();
+        $this->usuarioModel= new usuarios();
     }
 
     public function listarUsuarios(){
-        return $this ->usuarioModel->listar();
+        return $this ->usuarioModel->listarUsuario();
     }
     public function cadastrarUsuarios(){
         if($_SERVER['REQUEST_METHOD'] ==='POST'){
