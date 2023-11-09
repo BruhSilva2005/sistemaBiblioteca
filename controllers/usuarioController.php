@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/models/usuario.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/models/usuario.php";
 
 
 class  UsuarioController {

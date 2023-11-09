@@ -1,7 +1,7 @@
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/cabecario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/controllers/UsuarioController.php";
 
     $AlunoController=new alunoController();
     $AlunoController->EditarAluno();

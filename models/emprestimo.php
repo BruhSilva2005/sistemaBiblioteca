@@ -1,5 +1,5 @@
 <?php  
-        require_once $_SERVER['DOCUMENT_ROOT'] . "/database/DBConexao.php";
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/database/DBConexao.php";
 
 class emprestimo{
     protected $db;

@@ -1,8 +1,8 @@
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/cabecario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/controllers/UsuarioController.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/models/Usuario.php";
 
     if(isset($_GET["del"])&& !empty($_GET['id_usuario'])){
 
@@ -19,7 +19,7 @@
         <a href="cadastrar.php" class="btn btn-primary float-end">Cadastrar</a>
 
     </h1>
-        <?php include_once $_SERVER['DOCUMENT_ROOT']."/includes/alerta.php" ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT']."/sistemabiblioteca/includes/alerta.php" ?>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -62,5 +62,5 @@
         </table>
     </main>
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/rodape.php";
 ?>

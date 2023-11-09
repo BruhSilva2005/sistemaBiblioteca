@@ -55,46 +55,25 @@
             </div>
 
             <div class="lista-livros">
+
+            <?php for($cont = 1; $cont <= 6; $cont++): ?>
                 <div class="card-livro"> 
-                    <img src="assets/img/livro-css.png"
+                    <div class="capa">
+                    <img src="assets/img/livro-css-copy-0.png"
                     alt="css">
+                    <span class="legenda" >Lançamento</span>
+                    </div>
                     <h3> CSS Grid layout: criando layouts profissionais</h3>
                 </div>
                 <div class="card-livro"> 
-                    <img src="assets/img/livro-html.png"
+                <div class="capa">
+                    <img src="assets/img/livro-html-copy-0.png"
                     alt="css">
+                    <span class="black-friday">Black Friday</span>
+                    </div>
                     <h3>Html e CSS:Guia Prático</h3>
                 </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-css.png"
-                    alt="css">
-                    <h3> CSS Grid layout: criando layouts profissionais</h3>
-                </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-html.png"
-                    alt="css">
-                    <h3>Html e CSS:Guia Prático</h3>
-                </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-css.png"
-                    alt="css">
-                    <h3> CSS Grid layout: criando layouts profissionais</h3>
-                </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-html.png"
-                    alt="css">
-                    <h3>Html e CSS:Guia Prático</h3>
-                </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-css.png"
-                    alt="css">
-                    <h3> CSS Grid layout: criando layouts profissionais</h3>
-                </div>
-                <div class="card-livro"> 
-                    <img src="assets/img/livro-html.png"
-                    alt="css">
-                    <h3>Html e CSS:Guia Prático</h3>
-                </div>
+                <?php endfor; ?>
             </div>
         </section>
     </main>
@@ -122,8 +101,8 @@
         <div class="bloco-rodape">
             <h2>Rede Sociais</h2>
             <ul>
-                <li>Icone Facebook</li>
-                <li>Icone instagram</li>
+                <li><i class="fa-brands fa-square-facebook"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
             </ul>
         </div>
     </div>

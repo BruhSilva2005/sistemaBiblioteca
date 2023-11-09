@@ -1,8 +1,8 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
-require_once $_SERVER ['DOCUMENT_ROOT'] . "/controllers/alunoController.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/models/aluno.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/cabecario.php";
+require_once $_SERVER ['DOCUMENT_ROOT'] . "/sistemabiblioteca/controllers/alunoController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/models/aluno.php";
 
 if(isset($_GET["del"])&& !empty($_get['id_aluno'])){
 

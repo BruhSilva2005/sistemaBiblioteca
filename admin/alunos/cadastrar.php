@@ -1,16 +1,16 @@
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/cabecario.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/UsuarioController.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/models/Usuario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/cabecario.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/controllers/UsuarioController.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/models/Usuario.php";
 
 
     $AlunoController = new AlunoController();
 
-    $AlunoController ->cadastrarAlunoS();
+    $AlunoController ->cadastrarAlunos();
     
 
-?>
+?> 
 
 <main class="container mt-3 mb-3">
     <h1>Cadastrar  Alunos</h1>
@@ -45,5 +45,5 @@
 </main>
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/rodape.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/sistemabiblioteca/includes/rodape.php";
 ?>
