@@ -21,10 +21,17 @@ body{
     margin: 0 auto;
     padding: 15px;
 }
+.barra-topo{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999999;
+}
 #cabecalho{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
 }
 #menu ul{
     display: flex;
@@ -56,6 +63,7 @@ body{
     justify-content: center;
     text-align: center;
     color: #ffffff;
+    padding-top: 70px;
 }
 #banner p{
     margin: 20px;
@@ -132,6 +140,11 @@ body{
     font-weight: bold;
 
 }
+.card-livro h3{
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+}
 .legenda{
     background-color: #d9c505;
 }
@@ -166,4 +179,37 @@ body{
     background-color: #ccc;
     text-align: center;
     padding: 20px;
+}
+#botao-mobile{
+    display: none;
+}
+/*estilo mobile*/
+
+@media (max-width:767px){
+    
+    #botao-mobile{
+        display: block;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    #menu{
+        position: fixed;
+        background-color: #ffffff;
+        top: 70px;
+        left: -255;
+        width: 250px;
+        height: 100vh;
+        z-index: 999999;
+        box-shadow: 2px 2px 5px rgba #6b6a6a(0, 0, 0,0,5);
+    }
+   #menu.menu-ativo{
+        left: 0;
+    }
+    #menu ul{
+        display: block;
+        margin-top: 20px;
+    }
+    #menu ul li{
+        padding: 10px;
+    }
 }
