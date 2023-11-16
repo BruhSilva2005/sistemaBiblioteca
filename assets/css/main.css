@@ -125,7 +125,7 @@ body{
 }
 .card-livro{
     flex-grow: 1;
-    width: calc(25% - 30px);
+    width: calc((100% / 4 ) - 30px);
     position: relative;
 
 }
@@ -160,9 +160,11 @@ body{
 }
 #rodape .container{
     display: flex;
+    flex-wrap: wrap;
 }
 .bloco-rodape{
     flex-grow: 1;
+    width:  calc(100% / 3);
 }
 .bloco-rodape ul{
     list-style: none;
@@ -196,11 +198,12 @@ body{
         position: fixed;
         background-color: #ffffff;
         top: 70px;
-        left: -255;
+        left: -255px;
         width: 250px;
         height: 100vh;
         z-index: 999999;
         box-shadow: 2px 2px 5px rgba #6b6a6a(0, 0, 0,0,5);
+        transition: left 0.5s;
     }
    #menu.menu-ativo{
         left: 0;
@@ -212,4 +215,10 @@ body{
     #menu ul li{
         padding: 10px;
     }
+    .card-livro {
+        width: calc((100% / 2 ) - 30px);
+    }
+    .bloco-rodape{
+        flex-grow: 1;
+        width:  calc(100% / 2);
 }
