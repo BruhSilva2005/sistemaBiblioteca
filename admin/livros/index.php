@@ -5,6 +5,7 @@
 
     if(isset($_GET["del"]) && !empty($_GET['id_livro'])){
 
+        $livroController = new livroController();
         $livroController->excluirLivro();
 
     }
@@ -42,7 +43,7 @@
 
                 <tr>
                     <td><?=$livro->id_livro ?></td>
-                    <td><?=$livro->capa ?></td>
+                    <td><img src="/uploads/<?=$livro->capa?>" width="100"></td>
                     <td><?=$livro->titulo ?></td>
                     <td><?=$livro->autor ?></td>
                     <td>
